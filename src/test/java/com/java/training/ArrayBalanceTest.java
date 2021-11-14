@@ -17,16 +17,17 @@ public class ArrayBalanceTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {new int[]{}, false},
-                {new int[]{1}, false},
-                {new int[]{1, 1}, true},
-                {new int[]{1, 2}, false},
-                {new int[]{1, 1, 2}, true},
-                {new int[]{1, 2, 2}, false},
-                {new int[]{1, 2, 3}, true},
-                {new int[]{33, 33, 1, 2, 1}, false},
-                {new int[]{1, 1, 1, 2, 1}, true},
-                {new int[]{3, 4, -1, 6}, true},
+                {new int[]{}, false},   // согласен
+                {new int[]{1}, false},  // согласен
+                {new int[]{1, 1}, true}, // согласен
+                {new int[]{1, 2}, false}, // согласен
+                {new int[]{1, 1, 2}, true}, // допустим согласен 1+1=2
+                {new int[]{1, 2, 2}, false},// согласен
+                {new int[]{1, 2, 3}, true},// допустим согласен 1+2=3
+                {new int[]{33, 33, 1, 2, 1}, false},// согласен
+                {new int[]{1, 1, 1, 2, 1}, true},// допустим согласен 1+1+1=2+1
+                {new int[]{3, 4, -1, 6}, true},//  а тут как?  3+4= 6-1   ????
+                // Есди я правильно понял задание, то если первая часть массива = второй части возвращаем тру
         });
     }
 

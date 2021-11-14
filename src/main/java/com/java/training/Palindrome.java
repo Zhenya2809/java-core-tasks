@@ -6,7 +6,7 @@ public class Palindrome {
      * <p>Реализуйте метод, проверяющий, является ли заданная строка палиндромом.
      * Палиндромом называется строка, которая читается одинаково слева направо
      * и справа налево (в том числе пустая).
-     * При определении "палиндромности" строки должны учитываться только буквы и цифры. А пробелы,
+     * При определении "полиндромности" строки должны учитываться только буквы и цифры. А пробелы,
      * знаки препинания, а также регистр символов должны игнорироваться.</p>
      *
      * <p>Подсказки (не читайте, если хотите решить сами):
@@ -21,7 +21,15 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        return false;
+        String[] array = text.replaceAll("[^0-9A-Za-z]", "").toLowerCase().split("");
+        StringBuilder stringBuilder = new StringBuilder(text);
+        String[] array2 = stringBuilder.reverse().toString().replaceAll("[^0-9A-Za-z]", "").toLowerCase().split("");
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].equals(array2[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

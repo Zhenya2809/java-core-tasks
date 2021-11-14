@@ -7,6 +7,13 @@ public class StringSumDigits {
      * ignoring all other characters. Return 0 if there are no digits in the string.
      */
     public int sumDigits(String str) {
-        return -1;
+        int nums = 0;
+        String[] array = str.replaceAll("[^-?0-9]+", "").trim().split("");
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].equals("")) {
+                nums += (Integer.parseInt(array[i]));
+            } else return 0;
+        }
+        return nums;
     }
 }

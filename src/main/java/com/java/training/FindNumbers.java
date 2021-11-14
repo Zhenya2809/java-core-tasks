@@ -1,5 +1,8 @@
 package com.java.training;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FindNumbers {
 
     /**
@@ -11,7 +14,13 @@ public class FindNumbers {
      * числа 92, 18, 26 и 0.</p>
      */
     public int[] getAllNumbers(String text) {
-        return null;
+
+        String[] array = text.replaceAll("[^-?0-9]+"," ").trim().split(" ");
+        int[] arrays=new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            arrays[i]=(Integer.parseInt(array[i])*2);
+        }
+        return arrays;
     }
 
 }
